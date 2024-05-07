@@ -7,7 +7,7 @@
 
 // Given Parameters
 let vel = 10000; // velocity (km/h)
-const acc = 3; // acceleration (m/s^2)
+const acc = 3 * 3.6; // acceleration (m/s^2)
 const time = 3600; // seconds (1 hour)
 const d = 0; // distance (km)
 const fuel = 5000; // remaining fuel (kg)
