@@ -19,7 +19,7 @@ const rf = fbr*time //calculates remaining fuel
 const vel2 = calcNewVel(acc, vel, time) //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
-calcNewVel = (vel, acc, time) => { 
+function calcNewVel(acc, vel, time) { 
   return vel + (acc*time)
 }
 
@@ -28,7 +28,9 @@ console.log(`Corrected New Distance: ${d2} km`);
 console.log(`Corrected Remaining Fuel: ${rf} kg`);
 
 
-
+// - **New Velocity**: Approximately 48880 km/h after correction.
+// - **New Distance**: Approximately 10000 km after correction.
+// - **Remaining Fuel**: Approximately 3,200 kg after correction.
 
 
 
