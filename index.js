@@ -19,10 +19,10 @@ const timeInHour = timeInSec / 3600;
 
 const newDistance = initialDistanceInKm + (velocityInKmHour * timeInHour) //calcultes new distance
 const RemainingFuel = fuel - fuelBurnRate * timeInSec //calculates remaining fuel
-const newVelocity = calcNewVel(accelerationInKm, velocityInKmHour , timeInSec ) //calculates new velocity based on acceleration
+const newVelocity = calcNewVelocity(accelerationInKm, velocityInKmHour , timeInSec ) //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
-function calcNewVel(acceleration, velocity, time) { 
+function calcNewVelocity(acceleration, velocity, time) { 
   //
   try {
     if(acceleration !== accelerationInKm || velocity !== velocityInKmHour){
