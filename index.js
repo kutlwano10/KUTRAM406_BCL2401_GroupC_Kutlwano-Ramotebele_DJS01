@@ -17,8 +17,7 @@ const accelerationInKm = accelerationInSec * 3.6;
 const timeInHour = timeInSec / 3600;
 
 const newDistance = calcNewDistance(initialDistanceInKm ,velocityInKmHour,timeInHour)  //calcultes new distance
-const RemainingFuel = calcRemainingFuel(fuelInKg ,fuelBurnRate ,timeInSec) //calculates remaining fuel
-
+const RemainingFuel = calcRemainingFuel(fuelInKg ,fuelBurnRate ,timeInHour) //calculates remaining fuel
 const newVelocity = calcNewVelocity(accelerationInKm, velocityInKmHour , timeInSec ) //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
@@ -27,7 +26,7 @@ function calcNewVelocity(acceleration, velocity, time) {
     if(acceleration === accelerationInKm && velocity === velocityInKmHour && time === timeInSec){
       return velocity + (acceleration * time )
     }else{
-     throw Error("Incorrect Mesurements, Must be Km/h");
+     throw Error("Incorrect Measurements, use correct units(Km/h)");
     }
 }
 
@@ -36,12 +35,17 @@ function calcNewDistance(distance, velocity, time) {
   if (distance === initialDistanceInKm && velocity === velocityInKmHour && time === timeInHour) {
   return distance + (velocity * time)
   }else {
-    throw Error("incorrect mesurements, Must be km")
+    throw Error("incorrect measurements, use correct units(km)")
   }
 
 }
 
-function calcRemainingFuel() {
+function calcRemainingFuel(fuel, fuelRate, time) {
+  if(fuel === fuelInKg && fuelRate === fuelBurnRate && time === timeInSec) {
+    return fuel - fuelRate * time
+  }else{
+    throw Error("incorrect measurements, use correct units(kg)")
+  }
 
 }
 
