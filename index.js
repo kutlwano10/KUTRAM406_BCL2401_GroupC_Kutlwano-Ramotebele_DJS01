@@ -7,27 +7,26 @@
 
 // Given Parameters
 let velocityInKmHour = 10000; // velocity (km/h)
-const accelerationInSec = 3 ; // acceleration (m/s^2)
+const accelerationInKm = 3 ; // acceleration (m/s^2)
 const timeInSec = 3600; // seconds (1 hour)
 const initialDistanceInKm = 0; // distance (km)
 const fuelInKg = 5000; // remaining fuel (kg)
 const fuelBurnRate = 0.5; // fuel burn rate (kg/s)
 
-const accelerationInKm = accelerationInSec * 3.6;
+// const accelerationInKm = accelerationInSec * 3.6;
 const timeInHour = timeInSec / 3600;
 
 const newDistance = calcNewDistance(initialDistanceInKm ,velocityInKmHour,timeInHour)  //calcultes new distance
-const RemainingFuel = calcRemainingFuel(fuelInKg ,fuelBurnRate ,timeInHour) //calculates remaining fuel
+const RemainingFuel = calcRemainingFuel(fuelInKg ,fuelBurnRate ,timeInSec) //calculates remaining fuel
 const newVelocity = calcNewVelocity(accelerationInKm, velocityInKmHour , timeInSec ) //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
 function calcNewVelocity(acceleration, velocity, time) { 
-  
-    if(acceleration === accelerationInKm && velocity === velocityInKmHour && time === timeInSec){
-      return velocity + (acceleration * time )
-    }else{
-     throw Error("Incorrect Measurements, use correct units(Km/h)");
+    //check if the is a number or not
+    if(typeof acceleration !== 'number' || typeof velocity !== 'number' || typeof time !== 'number'){
+      throw Error("Incorrect Measurements, use correct units(Km/h)");
     }
+    return velocity + ((acceleration * 3.6) * time )
 }
 
 function calcNewDistance(distance, velocity, time) {
