@@ -10,25 +10,39 @@ let velocityInKmHour = 10000; // velocity (km/h)
 const accelerationInSec = 3 ; // acceleration (m/s^2)
 const timeInSec = 3600; // seconds (1 hour)
 const initialDistanceInKm = 0; // distance (km)
-const fuel = 5000; // remaining fuel (kg)
+const fuelInKg = 5000; // remaining fuel (kg)
 const fuelBurnRate = 0.5; // fuel burn rate (kg/s)
 
 const accelerationInKm = accelerationInSec * 3.6;
 const timeInHour = timeInSec / 3600;
 
-const newDistance = initialDistanceInKm + (velocityInKmHour * timeInHour) //calcultes new distance
-const RemainingFuel = fuel - fuelBurnRate * timeInSec //calculates remaining fuel
+const newDistance = calcNewDistance(initialDistanceInKm ,velocityInKmHour,timeInHour)  //calcultes new distance
+const RemainingFuel = calcRemainingFuel(fuelInKg ,fuelBurnRate ,timeInSec) //calculates remaining fuel
 
 const newVelocity = calcNewVelocity(accelerationInKm, velocityInKmHour , timeInSec ) //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
 function calcNewVelocity(acceleration, velocity, time) { 
-  // console.error("jhfjh");
+  
     if(acceleration === accelerationInKm && velocity === velocityInKmHour && time === timeInSec){
       return velocity + (acceleration * time )
     }else{
-     throw Error("Invalid inputs");
+     throw Error("Incorrect Mesurements, Must be Km/h");
     }
+}
+
+function calcNewDistance(distance, velocity, time) {
+
+  if (distance === initialDistanceInKm && velocity === velocityInKmHour && time === timeInHour) {
+  return distance + (velocity * time)
+  }else {
+    throw Error("incorrect mesurements, Must be km")
+  }
+
+}
+
+function calcRemainingFuel() {
+
 }
 
 console.log(`Corrected New Velocity: ${newVelocity} km/h`);
