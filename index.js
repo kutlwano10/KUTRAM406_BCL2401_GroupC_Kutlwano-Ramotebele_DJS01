@@ -24,7 +24,7 @@ const newVelocity = calcNewVelocity(accelerationInKm, velocityInKmHour , time ) 
 function calcNewVelocity(acceleration, velocity, time) { 
     //check if the is a number or not
     if(typeof acceleration !== 'number' || typeof velocity !== 'number' || typeof time !== 'number'){
-      throw Error("Incorrect Measurements, use correct units(Km/h)");
+      throw Error("Must be numerical Values, with correct units(Km/h)");
     }
     return velocity + ((acceleration * 3.6) * time )
 }
@@ -32,7 +32,7 @@ function calcNewVelocity(acceleration, velocity, time) {
 function calcNewDistance(distance, velocity, time) {
 
   if (typeof distance !== 'number' || typeof velocity !== 'number' || typeof time !== 'number') {
-    throw Error("incorrect measurements, use correct units(km)")
+    throw Error("Must be numerical values , with correct units(km)")
   }
   return distance + (velocity * (time / 3600))
 
@@ -40,7 +40,7 @@ function calcNewDistance(distance, velocity, time) {
 //CHECKING FOR REMAINING FUEL
 function calcRemainingFuel(fuel, fuelRate, time) {
   if(typeof fuel !== 'number' || typeof fuelRate !== 'number' || typeof time !== 'number') {
-    throw Error("incorrect measurements, use correct units(kg)")
+    throw Error("Must be numerical values , with correct units(kg)")
   }
   return fuel - fuelRate * time
 
