@@ -1,4 +1,4 @@
-**Challenges**
+**Challenges** 
 Faced so many challenges on how to find a way to solve the problem because i didn't get what was really needed from me to do.I tried to implement an object destructuring but i did go along with that approach. 
 
 **Solutions**
