@@ -28,7 +28,7 @@ function calcNewVelocity(acceleration, velocity, time) {
     }
     return velocity + ((acceleration * 3.6) * time )
 }
-
+// CALC NEW DISTANCE TRAVELED
 function calcNewDistance(distance, velocity, time) {
 
   if (typeof distance !== 'number' || typeof velocity !== 'number' || typeof time !== 'number') {
@@ -37,13 +37,12 @@ function calcNewDistance(distance, velocity, time) {
   return distance + (velocity * (time / 3600))
 
 }
-
+//CHECKING FOR REMAINING FUEL
 function calcRemainingFuel(fuel, fuelRate, time) {
-  if(fuel === fuelInKg && fuelRate === fuelBurnRate && time === timeInSec) {
-    return fuel - fuelRate * time
-  }else{
+  if(typeof fuel !== 'number' || typeof fuelRate !== 'number' || typeof time !== 'number') {
     throw Error("incorrect measurements, use correct units(kg)")
   }
+  return fuel - fuelRate * time
 
 }
 
